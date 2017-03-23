@@ -1,0 +1,100 @@
+
+    #charts {
+        width: 100%;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        min-height: 200px;
+        /*border: solid 1px #eee;*/
+
+    }
+
+    .chart {
+/*            background: #eee;*/
+        min-height: 200px;
+        /*border: solid 1px #eee;*/
+        margin-top: 10px;
+    }
+
+    text {
+        stroke: none;
+        fill: #000;
+
+
+    }
+
+    .axis-no-line {
+        display: none;
+    }
+
+    .axis-x {
+/*            display: none;*/
+    }
+
+    .total-box {
+        width: 80%;
+        height: 60%;
+        margin-top: 15%;
+        background: #21a8a8;
+        border-radius: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5%;
+        text-align: center;
+        color: #fff;
+        padding-top: 10%;
+        text-transform: uppercase;
+        opacity:0.5;
+        border: solid 1px gray;
+
+    }
+
+    .total-call-count {
+        font-weight: bold;
+        font-size: 180%;
+    }
+
+    .bars, .topbars {
+        fill: #90D4D4;
+        stroke: none;
+        /*opacity: 0.5;*/
+        stroke: gray;
+        stroke-width: 1px;
+        shape-rendering: crispEdges;
+    }
+
+    .value {
+        visibility: hidden;
+    }
+
+    .labels2 {
+        font-size: 70%;
+    }
+
+    .text3, .text4, .text5 {
+        font-size: 80%;
+    }
+
+
+    .horizbars {
+
+    }
+
+    .title {
+        width: 100%;
+        text-align: center;
+      font-size: 200%;
+      font-weight: 700;
+
+    }
+
+    .chart-title {
+      width: 100%;
+      text-align: center;
+      font-weight: 700;
+      margin-top: 5%;
+    }
+    .month-select {
+      width: 100%;
+      text-align: center;
+    }

@@ -1,0 +1,6 @@
+time_period,calls,time_label
+1,0,Midnight to 6am
+2,32,6am to 12pm
+3,37,12pm to 6pm
+4,19,6pm to midnight
+Total,88,
