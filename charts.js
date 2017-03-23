@@ -3,8 +3,13 @@
 var baseUrl = "data/december2016/";
 
 
-    var width = $("#chart1").width(),
-        height = width * 0.7;
+    var width = $("#chart1").width();
+
+
+    // var height = width * 0.7;
+    var height = window.outerWidth * 1.7;
+
+
 
     console.log(width);
 
@@ -36,7 +41,7 @@ d3.csv(baseUrl + "total_calls.csv", function (data) {
     // CHART 2 - CALLS BY DAY
 
 
-    var margin = { top: 30, right: 30, bottom: 60, left: 30 }
+    var margin = { top: 80, right: 60, bottom: 80, left: 30 }
 
     var width = width - margin.left - margin.right,
         height = height - margin.top - margin.bottom;
@@ -96,7 +101,7 @@ d3.csv(baseUrl + "total_calls.csv", function (data) {
             .append("text")
                 .text( function (d) { return d.calls; })
                 .attr("x", function (d) { var bandwidth = (x1.bandwidth()); return x1(d.week_day) + bandwidth/2; })
-                .attr("y", function (d) { return y1(d.calls) - 5; })
+                .attr("y", function (d) { return y1(d.calls) - 10; })
                 .style("text-anchor", "middle")
                 .attr("class", "labels2")
 
@@ -117,7 +122,7 @@ d3.csv(baseUrl + "total_calls.csv", function (data) {
     console.log(height);
     console.log(width);
 
-    var radius = Math.min(width, height) / 2;
+    var radius = Math.min(width, height) / 2.5;
 
     console.log(radius);
 
@@ -179,11 +184,11 @@ d3.csv(baseUrl + "total_calls.csv", function (data) {
             .append("rect")
             .attr("x", 20)
             .attr("y", function (d, i) {
-                 return (height / 2 + radius) + (15 * i);
+                 return (height / 2 + radius) + (35 * i) - 15;
 
             })
-            .attr("width", 15)
-            .attr("height", 10)
+            .attr("width", 25)
+            .attr("height", 25)
             .style("fill", function(d) { return color(d.time_period); });
 
 
@@ -197,9 +202,9 @@ d3.csv(baseUrl + "total_calls.csv", function (data) {
             .enter()
             .append("text")
             .text( function (d) { return d.time_label; })
-            .attr("x", 40)
+            .attr("x", 60)
             .attr("y", function (d, i) {
-                return (height / 2 + radius) + (15 * i) + 10;
+                return (height / 2 + radius) + (35 * i) + 10;
 
             })
             .attr("width", 10)
@@ -269,14 +274,14 @@ d3.csv(baseUrl + "total_calls.csv", function (data) {
             .attr("width", function (d) { return x4(d.calls); })
             .attr("class", "bars")
 
-        svg4.selectAll(".text4")
+        svg4.selectAll(".text6")
             .data(data)
             .enter()
             .append("text")
             .text( function (d) { return d.help_needed; })
             .attr("x", 0)
-            .attr("y", function (d) { return y4(d.help_needed) - 8; })
-            .attr("class", "text4")
+            .attr("y", function (d) { return y4(d.help_needed) - 20; })
+            .attr("class", "text6")
 
           svg4.selectAll("text5")
             .data(data)
@@ -284,8 +289,8 @@ d3.csv(baseUrl + "total_calls.csv", function (data) {
             .append("text")
             .text( function (d) { return d.calls; })
             .style("fill", "#000")
-            .attr("x", function (d) { return x4(d.calls) + 5; })
-            .attr("y", function (d) { return y4(d.help_needed) + 15; })
+            .attr("x", function (d) { return x4(d.calls) + 10; })
+            .attr("y", function (d) { return y4(d.help_needed) + 30; })
             .attr("class", "text5")
 
 
