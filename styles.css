@@ -74,7 +74,7 @@ p {
 
 .caption.logo {
   margin-top: -30px;
-    background: red;
+    background: #000;
 }
 
 .caption span.border {
@@ -91,9 +91,12 @@ p {
 }
 
 img.main-logo {
+  position: relative;
+  top: 0px;
   margin-left: auto;
   margin-right: auto;
   border: none;
+  width: 100%;
 }
 
 img.small {

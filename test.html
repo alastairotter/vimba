@@ -64,7 +64,7 @@
 
 
     <div class="bgimg-1">
-      <div class="caption logo" style="height: 100%; text-align: center; top: 0; background: red; ">
+      <div class="caption logo" style="height: 100%; text-align: center; top: 0;  ">
         <!-- <img class="main-logo big" src="images/vimba_logo_new.png"> -->
         <img class="main-logo small" src="images/vimba_logo_new_small.png">
         <!-- <div class="helpline">*134*403#</div>
@@ -290,6 +290,21 @@
 
     <script src="lib/jquery.min.js"></script>
     <script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+    <script>
+      var logoHeight = $(".main-logo").height();
+      var pageHeight = window.innerHeight;
+
+      console.log("pageHeight: " + pageHeight);
+
+      console.log("logoHeight: " + logoHeight);
+
+      $(".main-logo").css("top", function () {
+          return (pageHeight/2 - logoHeight/1.5) + "px";
+        });
+      // $(".logo").height(logoHeight);
+      // $(".bgimg-1").height(logoHeight);
+    </script>
 
   </body>
 </html>
