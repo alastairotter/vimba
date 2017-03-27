@@ -13,7 +13,7 @@ var baseUrl = "data/december2016/";
 
     console.log(width);
 
-    $("#chart1").height(height);
+    // $("#chart1").height(height);
     $("#chart2").height(height);
     $("#chart3").height(height);
     $("#chart4").height(height);
@@ -41,7 +41,7 @@ d3.csv(baseUrl + "total_calls.csv", function (data) {
     // CHART 2 - CALLS BY DAY
 
 
-    var margin = { top: 80, right: 60, bottom: 80, left: 30 }
+    var margin = { top: 40, right: 60, bottom: 80, left: 30 }
 
     var width = width - margin.left - margin.right,
         height = height - margin.top - margin.bottom;
@@ -228,7 +228,7 @@ d3.csv(baseUrl + "total_calls.csv", function (data) {
     // CHART 4 - TTYPE OF HELP NEEDED
 
 
-     var y4 = d3.scaleBand().rangeRound([height, 0]).padding(0.6),
+     var y4 = d3.scaleBand().rangeRound([height, 0]).padding(0.4),
         x4 = d3.scaleLinear().rangeRound([0, width]);
 
 
