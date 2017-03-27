@@ -7,7 +7,7 @@ var baseUrl = "data/december2016/";
 
 
     // var height = width * 0.7;
-    var height = window.outerWidth * 1.7;
+    var height = width * 0.9;
 
 
 
@@ -122,7 +122,7 @@ d3.csv(baseUrl + "total_calls.csv", function (data) {
     console.log(height);
     console.log(width);
 
-    var radius = Math.min(width, height) / 2.5;
+    var radius = Math.min(width, height) / 1.5;
 
     console.log(radius);
 
@@ -151,7 +151,7 @@ d3.csv(baseUrl + "total_calls.csv", function (data) {
         .attr("height", height + margin.top + margin.bottom)
 
     var piechart = svg3.append("g")
-            .attr("transform", "translate(" + (width /1.6) + "," + (height/2) + ")")
+            .attr("transform", "translate(" + (width /1.6) + "," + (height/1.1) + ")")
 
     d3.csv(baseUrl + "calls_by_time.csv", function (data) {
 
