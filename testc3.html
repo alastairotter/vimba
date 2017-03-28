@@ -15,6 +15,7 @@
     <script src="lib/jquery.min.js"></script>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles_charts.css">
+    <script src="data/alldata.js"></script>
     <script src="lib/c3.js"></script>
     <link rel="stylesheet" href="lib/c3.css">
   </head>
@@ -91,7 +92,8 @@
 
       <div class="row about about-top">
           <div class="col-md-1"></div>
-          <div class="col-md-2  logos"><img src="images/sonke_200.png"></div>
+          <div class="col-md-2  logos"><a href="http://www.genderjustice.org.za/">
+            <img src="images/sonke_200.png"></a></div>
           <div class="col-md-3 "><p>Sonke Gender Justice is conducting a research project in Diepsloot with the University of the Witwatersrand that aims to find ways to reduce violence against women by changing men’s behaviour through workshops and other activities.</p></div>
           <div class="col-md-2  logos"><img class="large" src="images/green_door_200.png"></div>
           <div class="col-md-3 "><p>Green Door – a temporary place of safety, where victims can also receive help accessing services and counselling.</p></div>
@@ -100,16 +102,16 @@
 
       <div class="row about">
           <div class="col-md-1 col-sm-0"></div>
-          <div class="col-md-2 col-sm-2 logos"><img src="images/laa_200.png"></div>
+          <div class="col-md-2 col-sm-2 logos"><a href="http://www.lva.org.za/"><img src="images/laa_200.png"></a></div>
           <div class="col-md-3 col-sm-2"><p>Lawyers Against Abuse – provides free legal support to victims of rape and gender-based violence as well as counselling.</p></div>
-          <div class="col-md-2 logos"><img src="images/afrika_tikkun_200.png"></div>
+          <div class="col-md-2 logos"><a href="http://www.afrikatikkun.org/"><img src="images/afrika_tikkun_200.png"></a></div>
           <div class="col-md-3"><p>Afrika Tikkun – provides social workers and support for children. It works with Childline, which helps abused children.</p></div>
           <div class="col-md-1 col-sm-0"></div>
       </div>
 
        <div class="row about">
           <div class="col-md-1 col-sm-0"></div>
-          <div class="col-md-2 logos"><img src="images/sadag_200.png"></div>
+          <div class="col-md-2 logos"><a href="http://www.sadag.org/"><img src="images/sadag_200.png"></a></div>
           <div class="col-md-3"><p>South African Depression and Anxiety Group
     Provides psychological support for victims of violence and rape.</p></div>
           <div class="col-md-2"></div>
@@ -223,6 +225,9 @@
 
       <div class="month-select">
         <select id="monthselect">
+          <option value="">
+            --
+          </option>
           <option value="dec2016">
             December 2016
           </option>
@@ -311,33 +316,20 @@
 
 
 <script>
+var startMonth = "dec2016";
+//total count sizing
+var totalHeight = $(".total-box").height();
+$("#chart1").css("height", totalHeight + "px");
 
-var callsByTime = {
-  "dec2016":
-[['Midnight to 6am', 33],
-['6am to 12pm', 143],
-['12pm to 6pm', 64],
-['6pm to midnight', 32]]
-};
 
-var callsByDay = {
-  "dec2016":
-    [['Mon', 31],
-    ['Tues', 9],
-    ['Wed', 24],
-    ['Thurs', 109],
-    ['Fri',45],
-    ['Sat', 25],
-    ['Sun', 29]]
-}
+// var baseUrl = "data/december2016/";
+// d3.csv(baseUrl + "total_calls.csv", function (data) {
 
-var helpNeeded = {
-  "dec2016":
-    [['I have been raped', 79],
-    ['Help someone who has been raped', 49],
-    ['I have been beaten/abused', 99],
-    ['Help a beaten/abused person', 45]]
-}
+  d3.select(".total-call-count")
+    .text(totalCalls[startMonth]);
+
+
+
 
 
 var colors = ["#eaca97",
@@ -353,7 +345,9 @@ var colors = ["#eaca97",
 
 
 // CHART 2
+function addCharts(month) {
 
+console.log(month);
 var chart2 = c3.generate({
   bindto: '#chart2',
   interaction: {
@@ -363,7 +357,7 @@ tooltip: {
   show:false
 },
 data: {
-    columns: callsByDay.dec2016,
+    columns: callsByDay[month],
     type: 'bar'
 },
 color: {
@@ -371,12 +365,16 @@ color: {
 },
 bar: {
     width: {
-        ratio: 0.8 // this makes bar width 50% of length between ticks
+        ratio: 0.8
     }
     // or
     //width: 100 // this makes bar width 100px
 }
 });
+
+
+
+
 
 // CHART 3
 
@@ -386,7 +384,7 @@ var chart3 = c3.generate({
   enabled: false
   },
     data: {
-      columns: callsByTime.dec2016,
+      columns: callsByTime[month],
         type : 'pie',
         // onclick: function (d, i) { console.log("onclick", d, i); },
         // onmouseover: function (d, i) { console.log("onmouseover", d, i); },
@@ -416,7 +414,7 @@ tooltip: {
   show:false
 },
 data: {
-    columns: helpNeeded.dec2016,
+    columns: helpNeeded[month],
     type: 'bar'
 },
 color: {
@@ -430,6 +428,26 @@ bar: {
     //width: 100 // this makes bar width 100px
 }
 });
+
+}
+
+// addCharts("dec2016");
+
+
+// MOnth switcher
+
+    d3.select("#monthselect").on("change", change)
+    function change() {
+        var selection = this.options[this.selectedIndex].value;
+
+        d3.selectAll("svg").remove();
+        d3.select(".total-call-count")
+          .text(totalCalls[selection]);
+        addCharts(selection)
+
+      }
+
+
 
 
 
