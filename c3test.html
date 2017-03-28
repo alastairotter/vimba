@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
+    <script src="lib/d3.v3.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles_charts.css">
+    <script src="c3.js"></script>
+    <style>
+      #chart, #chart2 {
+        width: 80%;
+        max-height: 300px;
+      }
+    </style>
+  </head>
+
+
+  <body>
+
+    <div id="chart">
+
+    </div>
+
+    <div id="chart2">
+
+    </div>
+
+    <script>
+    var chart = c3.generate({
+      bindto: '#chart',
+      interaction: {
+  enabled: false
+},
+        data: {
+            columns: [
+                ['data1', 30],
+                ['data2', 120],
+            ],
+            type : 'donut',
+            onclick: function (d, i) { console.log("onclick", d, i); },
+            onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+            onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+        },
+        donut: {
+            title: "Iris Petal Width"
+        }
+    });
+
+    var chart2 = c3.generate({
+      bindto: '#chart2',
+      interaction: {
+  enabled: false
+},
+    data: {
+        columns: [
+            ['midnight', 30],
+            ['data2', 130],
+            ['data3', 100]
+        ],
+        type: 'bar'
+    },
+    bar: {
+        width: {
+            ratio: 0.8 // this makes bar width 50% of length between ticks
+        }
+        // or
+        //width: 100 // this makes bar width 100px
+    }
+});
+    </script>
+
+
+
+
+  </body>
+  </html>
