@@ -1,0 +1,488 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+
+    <script src="lib/d3.v3.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles_charts.css">
+    <script src="data/alldata.js"></script>
+    <script src="lib/c3.js"></script>
+    <link rel="stylesheet" href="lib/c3.css">
+  </head>
+
+  <body>
+
+    <!-- Static navbar -->
+    <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <!-- <a class="navbar-brand" href="#">Vimba</a> -->
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <!-- <li class="active"><a href="#">Home</a></li> -->
+            <li><a href="#about">About</a></li>
+            <li><a href="#diepsloot">Diepsloot</a></li>
+            <li><a href="#data">Vimba app data</a></li>
+            <!-- <li><a href="#contact">Contact</a></li> -->
+            <!-- <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li> -->
+          </ul>
+          <!-- <ul class="nav navbar-nav navbar-right">
+            <li><a href="../navbar/">Default</a></li>
+            <li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li>
+            <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+          </ul> -->
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+
+
+
+
+    <div class="bgimg-1 content-pad">
+      <div class="caption logo" style="height: 100%; text-align: center; top: 0;  ">
+        <!-- <img class="main-logo big" src="images/vimba_logo_new.png"> -->
+        <img class="main-logo small" src="images/vimba_logo_new_small.png">
+        <!-- <div class="helpline">*134*403#</div>
+        <div class="tagline">Help for women and children who are victims of violence and abuse</div> -->
+
+
+      </div>
+    </div>
+    <a name="about"></a>
+    <div class="body-copy" style="color: #777;background-color:white;text-align:center; text-align: left;">
+
+      <div class="cross-head" style="text-align:center;">Introduction</div>
+      <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+          <p>
+            Vimba Helpline is a free cell phone-based service to help women and children living in Diepsloot who are victims of rape and other forms of violence get access to help. It is a project of the Mail & Guardian’s Bhekisisa Centre for Health Journalism in partnership with five non-governmental organisations that provide services and support to victims of gender-based violence in Diepsloot: Sonke Gender Justice, Green Door Place of Safety, Lawyers Against Abuse, Afrika Tikkun and the South African Depress and Anxiety Group. </p></div>
+        <div class="col-md-1"></div>
+        </div>
+
+      <div class="row about about-top">
+          <div class="col-md-1"></div>
+          <div class="col-md-2  logos"><a href="http://www.genderjustice.org.za/">
+            <img src="images/sonke_200.png"></a></div>
+          <div class="col-md-3 "><p>Sonke Gender Justice is conducting a research project in Diepsloot with the University of the Witwatersrand that aims to find ways to reduce violence against women by changing men’s behaviour through workshops and other activities.</p></div>
+          <div class="col-md-2  logos"><img class="large" src="images/green_door_200.png"></div>
+          <div class="col-md-3 "><p>Green Door – a temporary place of safety, where victims can also receive help accessing services and counselling.</p></div>
+          <div class="col-md-1 "></div>
+      </div>
+
+      <div class="row about">
+          <div class="col-md-1 col-sm-0"></div>
+          <div class="col-md-2 col-sm-2 logos"><a href="http://www.lva.org.za/"><img src="images/laa_200.png"></a></div>
+          <div class="col-md-3 col-sm-2"><p>Lawyers Against Abuse – provides free legal support to victims of rape and gender-based violence as well as counselling.</p></div>
+          <div class="col-md-2 logos"><a href="http://www.afrikatikkun.org/"><img src="images/afrika_tikkun_200.png"></a></div>
+          <div class="col-md-3"><p>Afrika Tikkun – provides social workers and support for children. It works with Childline, which helps abused children.</p></div>
+          <div class="col-md-1 col-sm-0"></div>
+      </div>
+
+       <div class="row about">
+          <div class="col-md-1 col-sm-0"></div>
+          <div class="col-md-2 logos"><a href="http://www.sadag.org/"><img src="images/sadag_200.png"></a></div>
+          <div class="col-md-3"><p>South African Depression and Anxiety Group
+    Provides psychological support for victims of violence and rape.</p></div>
+          <div class="col-md-2"></div>
+          <div class="col-md-1 col-sm-0"></div>
+      </div>
+
+    </div>
+
+    <div class="bgimg-2 content-pad">
+      <div class="caption">
+    <!--    <span class="border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">What does the helpline do?</span>-->
+      </div>
+    </div>
+
+    <div style="position:relative;">
+
+      <div class="body-copy" style="background-color:#fff;text-align:center; text-align: left;">
+       <div class="cross-head" style="text-align:center;">What does the helpline do?</div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <p>People who dial the number are asked a series of questions about where they are and the type of help they need. When they answer all of them they are sent an SMS telling them where to go to get help in the township and a phone number they can contact. If they indicate that they have been raped, they are also sent an SMS with some information about what to. The helpline also collects data about gender-based violence in Diepsloot.</p>
+                <p>Watch this video to see how the app works:</p>
+
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bgimg-3 content-pad">
+      <div class="caption">
+       <span class="border" style="float: right; background-color:#000;color: #f7f7f7;">BROWN</span>
+      </div>
+    </div>
+
+    <a name="diepsloot"></a><div style="position:relative;">
+      <div class="body-copy" style="background-color:#fff;text-align:center; text-align: left; min-height: 450px;">
+      <div class="cross-head" style="text-align:center;">About Diepsloot</div>
+       <div class="map" style="position: relative; width: 100%; float: left; margin-right: 5%; margin-bottom: 2%;">
+          <div style="position: absolute; top:0; width: 100%; min-height: 300px;"  onClick="style.pointerEvents='none'"></div>
+           <iframe class="map" src="https://www.google.com/maps/d/u/0/embed?mid=1Nf7nX7EBB0AcsB949bltwTk-KO8" width="100%" height="300" frameborder="none"></iframe></div>
+        <p>Diepsloot is a densely populated triangle of land wedged between William Nicol Drive and the N14 freeway in northern Johannesburg. It was established in 1995, and has grown rapidly over the course of two decades as people flocked to Johannesburg in search of work. In 2011 the national census put the population at 180 000, but it’s generally believed that by 2016 closer to 350,000 lived there. It’s a ramshackle dust-coated mixture of tin shacks and RDP houses, intersected by narrow roads, very few of which are tarred.</p>
+
+    <p>Unemployment rates are high. A social audit conducted by Sonke Gender Justice found that up to half the working-age population is jobless. The provision of basic services such as water and electricity is limited. </p>
+
+    <p>There are very few social and recreational facilities, for example, Sonke’s social audit found that there are only two community halls and one youth centre, which has a library. There is one park in Diepsloot, which was last renovated in 2008, and there is no public swimming pool. There are, however, more than 200 shebeens and taverns.</p>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="bgimg-4 content-pad">
+      <div class="caption">
+       <span class="border" style="float: right; background-color:#000;color: #f7f7f7;">DIEPLSOOT</span>
+      </div>
+    </div>
+    <div style="position:relative;">
+
+      <div class="body-copy" style="background-color:#fff;text-align:center; text-align: left;">
+       <div class="cross-head" style="text-align:center;">Gender-based violence in Diepsloot</div>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <p>In October 2013 the bodies of two little girls, one three years old, the other, her two-year-old cousin, were found in a broken public toilet near their home in Diepsloot. Bhekisisa visited the family in 2015 and reported on the <a href="http://bhekisisa.org/article/2015-10-01-diepsloot-where-men-think-its-their-right-to-rape">disturbing prevalence of rape in the community</a>.</p>
+                <p>In early 2016 research conducted by the University of the Witwatersrand and Sonke Gender Justice in which 2,600 men, aged 18 to 40 years, living in Diepsloot were interviewed found that rape and physical abuse rates are <a href="http://bhekisisa.org/article/2016-11-29-00-study-more-than-half-of-diepsloot-men-have-raped-or-beaten-a-woman-in-the-past-year">more than double those reported in national studies</a>.</p>
+    <p>
+
+    <ul>
+        <li>56% of the men in the study used physical or sexual violence against women.</li>
+            <ul>
+                <li>20% only physical violence.</li>
+                <li>14% only sexual violence.</li>
+                <li>29.7% both types of violence.</li>
+            </ul>
+
+
+        <li>In South Africa 14% of men reported enacting violence towards women.</li>
+                </ul></p>
+
+
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- DATA COLLECTED-->
+
+    <div class="bgimg-5 content-pad">
+      <div class="caption">
+    <!--    <span class="border" style="background-color:#000;font-size:25px;color: #f7f7f7;">ABOUT DIEPSLOOT</span>-->
+      </div>
+    </div>
+    <a name="data"></a>
+    <div style="position:relative;">
+      <div class="body-copy" style="background-color:#fff;text-align:center; text-align: left; min-height: 450px;">
+      <div class="cross-head" style="text-align:center;">Data collected by the Vimba app</div>
+
+        <p>The Vimba Helpline has two functions. The first is to make is easier for victims of violence and abuse in Diepsloot to access the services and support available to them in Diepsloot. The second is to collect information that could be useful to the service providers about the prevalence of violence, areas in Diepsloot that could perhaps be hotspots, and times when violence peaks. </p>
+    <!-- CHARTS IN HERE -->
+    <p style="text-align: center;">
+
+      <div class="month-select">
+        <select id="monthselect">
+          <option value="">
+            --
+          </option>
+          <option value="dec2016">
+            December 2016
+          </option>
+          <option value="jan2017">
+            January 2017
+          </option>
+          <option value="feb2017">
+            February 2017
+          </option>
+        </select>
+      </div>
+      <div id="charts">
+          <div class="row">
+             <div class="col-md-1"></div>
+              <div class="col-md-5 chart" id="chart1" >
+
+                  <div class="total-box">
+                      <div class="total-call-count">000</div>
+                      <div class="total-calls">Total number of calls</div>
+                  </div>
+              </div>
+              <div class="col-md-5 chart" id="chart2">
+                <div class="chart-title">
+                  Calls by day of week
+                </div>
+              </div>
+              <div class="col-md-1"></div>
+          </div>
+
+          <div class="row">
+             <div class="col-md-1"></div>
+              <div class="col-md-5 chart" id="chart3"><div class="chart-title">
+                Calls by time period
+              </div></div>
+              <div class="col-md-5 chart" id="chart4"><div class="chart-title">
+                Help needed
+              </div></div>
+              <div class="col-md-1"></div>
+          </div>
+      </div>
+
+
+      <!-- <script src="charts.js"></script> -->
+
+
+    </p>
+    <!-- CHARTS END HERE -->
+
+
+<!-- contact -->
+
+<div style="position:relative;">
+
+  <div class="body-copy" style="background-color:#fff;text-align:center; text-align: left;">
+   <div class="cross-head" style="text-align:center;">Contact Vimba</div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <p>
+              Contact Details</p>
+
+
+
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+  </div>
+</div>
+<!-- end contact -->
+
+
+      </div>
+    </div>
+
+
+
+    <div class="bgimg-1 content-pad">
+      <div class="caption">
+    <!--    <span class="border">FIN!</span>-->
+      </div>
+    </div>
+
+
+
+
+
+
+<script>
+var startMonth = "dec2016";
+//total count sizing
+var totalHeight = $(".total-box").height();
+$("#chart1").css("height", totalHeight + "px");
+
+
+// var baseUrl = "data/december2016/";
+// d3.csv(baseUrl + "total_calls.csv", function (data) {
+
+  d3.select(".total-call-count")
+    .text(totalCalls[startMonth]);
+
+
+
+
+
+var colors = ["#eaca97",
+"#ddb0de",
+"#b8d49f",
+"#f1a7a2",
+"#bafff3",
+"#d6a17e",
+"#acedff",
+"#9ab292",
+"#fff9f6",
+"#78b6bf"];
+
+
+// CHART 2
+function addCharts(month) {
+
+console.log(month);
+var chart2 = c3.generate({
+  bindto: '#chart2',
+  interaction: {
+enabled: true
+},
+tooltip: {
+  show:false
+},
+data: {
+    columns: callsByDay[month],
+    type: 'bar'
+},
+color: {
+    pattern: colors
+},
+bar: {
+    width: {
+        ratio: 0.8
+    }
+    // or
+    //width: 100 // this makes bar width 100px
+}
+});
+
+
+
+
+
+// CHART 3
+
+var chart3 = c3.generate({
+    bindto: '#chart3',
+    interaction: {
+  enabled: false
+  },
+    data: {
+      columns: callsByTime[month],
+        type : 'pie',
+        // onclick: function (d, i) { console.log("onclick", d, i); },
+        // onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+        // onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+    },
+    color: {
+        pattern: colors
+    },
+    pie: {
+        // title: "Iris Petal Width"
+        label: {
+          show:false
+        }
+    }
+});
+
+
+
+// CHART 4
+
+var chart4 = c3.generate({
+  bindto: '#chart4',
+  interaction: {
+enabled: true
+},
+tooltip: {
+  show:false
+},
+data: {
+    columns: helpNeeded[month],
+    type: 'bar'
+},
+color: {
+    pattern: colors
+},
+bar: {
+    width: {
+        ratio: 0.8 // this makes bar width 50% of length between ticks
+    }
+    // or
+    //width: 100 // this makes bar width 100px
+}
+});
+
+}
+
+// addCharts("dec2016");
+
+
+// MOnth switcher
+
+    d3.select("#monthselect").on("change", change)
+    function change() {
+        var selection = this.options[this.selectedIndex].value;
+
+        d3.selectAll("svg").remove();
+        d3.select(".total-call-count")
+          .text(totalCalls[selection]);
+        addCharts(selection)
+
+      }
+
+
+
+
+
+
+
+//
+
+</script>
+
+
+
+
+
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+
+    <script>
+
+
+
+      var logoHeight = $(".main-logo").height();
+      var pageHeight = window.innerHeight;
+
+      console.log("pageHeight: " + pageHeight);
+
+      console.log("logoHeight: " + logoHeight);
+
+      $(".main-logo").css("top", function () {
+          return (pageHeight/2 - logoHeight/1.5) + "px";
+        });
+
+
+
+
+    </script>
+
+  </body>
+</html>
