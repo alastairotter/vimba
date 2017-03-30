@@ -61,8 +61,20 @@ var helpNeeded = {
         ['Help a beaten/abused person', 15]]
 }
 
+// var totalCalls = {
+//   "dec2016": 272,
+//   "jan2017": 88,
+//   "feb2017": 30
+// }
+
 var totalCalls = {
-  "dec2016": 272,
-  "jan2017": 88,
-  "feb2017": 30
+  "dec2016":
+    [["total", 272],
+    ["incomplete", 0]],
+  "jan2017":
+    [["total", 197,
+      "comleted", 88]],
+  "feb2017":
+    [["total", 134,
+      "completed", 30]]
 }

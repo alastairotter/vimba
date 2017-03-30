@@ -11,13 +11,7 @@
 
     }
 
-    .chart {
-/*            background: #eee;*/
-        min-height: 300px;
-        /*border: solid 1px #eee;*/
-        margin-top: 10px;
-        
-    }
+
 
     text {
         stroke: none;
@@ -36,27 +30,34 @@
 
     .total-box {
         width: 80%;
-        height: 50%;
+        /*height: 50%;*/
         margin-top: 5%;
-        background: #21a8a8;
+        background: #000;
         border-radius: 10px;
         margin-left: auto;
         margin-right: auto;
         padding: 5%;
         text-align: center;
         color: #fff;
-        padding-top: 10%;
+        padding-top: 5%;
         text-transform: uppercase;
-        opacity:0.5;
+        /*opacity:0.5;*/
         border: solid 1px gray;
         line-height: 200%;
 
     }
 
+
+
     .total-call-count {
         font-weight: bold;
         font-size: 150%;
 
+    }
+
+    .completed-calls-count {
+      font-weight: bold;
+      font-size: 150%;
     }
 
     /*select {
