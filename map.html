@@ -1,0 +1,239 @@
+ <!DOCTYPE html>
+ <html lang="en">
+
+<head>
+     <meta charset="UTF-8">
+     <title>TITLE</title>
+     <meta name="description" content="DESCRIPTION">
+     <script src="map_ext_calls.js"></script>
+     <script src="map_call_points.js"></script>
+     <script src="map_labels.js"></script>
+     <script src="../lib/d3.v3.min.js"></script>
+
+    <script src="../lib/leaflet/leaflet.js"></script>
+    <link rel="stylesheet" href="../lib/leaflet/leaflet.css">
+
+     <!--[if lt IE 9]>
+       <script src = "http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+     <![endif]-->
+     <style>
+     html {
+      height: 100%;
+     }
+      #map {
+        width: 100%;
+        height: 600px;
+      }
+
+      .maptooltip {
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        position: absolute;
+        top: 100px;
+        left: 100px;
+        background: #000;
+        height: auto;
+        min-width: 50px;
+        color: #fff;
+        z-index: 100;
+        padding: 5px 10px;
+        border-radius: 8px;
+        font-size: 80%;
+        opacity: 0.9;
+        line-height: 150%;
+        display: none;
+      }
+      .mapext {
+        /*font-weight: bold;*/
+      }
+      .mapcalls {
+        /*font-weight: bold;*/
+        font-size: 130%;
+      }
+
+      .topcontent  {
+          height: 1400px;
+          width: 100%;
+      }
+
+      .text-labels {
+        position: absolute;
+        z-index: 1000;
+            font-size:300%;
+            color: #fff;
+            opacity: 0.8;
+            display: block;
+
+        }
+
+
+     </style>
+ </head>
+
+ <body>
+
+   <!-- <div class='topcontent'>
+
+   </div> -->
+  <div class="maptooltip">
+    <div class="mapext">
+      Extension
+    </div>
+    <div class="mapcalls">
+      Calls
+    </div>
+  </div>
+   <div id="map">
+
+   </div>
+
+   <script>
+   var maptip = d3.select(".maptooltip"),
+     mapext = d3.select(".mapext"),
+     mapcalls = d3.select(".mapcalls");
+
+
+
+
+labels.forEach( function (d) {
+    console.log(d);
+})
+
+
+     //range
+
+     var range = d3.scale.linear()
+       .domain([9, 109])
+        .range([5,25])
+
+
+if(window.outerWidth < 700) {
+     var zoom = 15;
+     d3.select("#map").style("height", "1000px")
+   }
+else {
+      var zoom= 14;
+}
+    var mymap = L.map('map').setView([-25.933725,28.008836], zoom);
+
+    L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+}).addTo(mymap);
+
+function onEachFeature(feature, layer) {
+           layer.on({
+               mouseover: highlightFeature,
+               mouseout: resetHighlight,
+               click: clickFeature
+//                mousemove: tooltipMove
+           });
+       }
+
+function highlightFeature(e) {
+//   console.log(e.target.feature.properties.name + " : " + e.target.feature.properties.total_calls);
+// console.log(e);
+
+
+  mapext
+    .text("Extension " + e.target.feature.properties.extension);
+
+  mapcalls
+    .text(e.target.feature.properties.calls + " calls")
+
+  maptip
+    .style("display", "block")
+    .style("top", e.originalEvent.pageY + "px")
+    .style("left", e.originalEvent.pageX + 25 + "px")
+}
+
+function resetHighlight(e) {
+
+  maptip.style("display","none");
+
+}
+
+function clickFeature(e) {
+  coords = e.latlng.lat + ", " + e.latlng.lng;
+  console.log(coords);
+
+}
+
+var geoJsonLayer = L.geoJson(extensions, {
+
+
+        style: function (feature) {
+
+
+            return {
+                weight: 1,
+                fillOpacity: 0.1,
+                fillColor: "red",
+                color:"#fff"
+
+            }
+        },
+
+        // onEachFeature: onEachFeature,
+
+    }).addTo(mymap);
+
+    var geoJsonLayer2 = L.geoJson(points, {
+
+        style: function (feature) {
+
+        },
+
+        onEachFeature: onEachFeature,
+
+        pointToLayer: function (feature, latlng) {
+
+          var rad = range(feature.properties.calls);
+
+          return L.circleMarker(latlng, {
+    				radius: rad,
+    				fillColor: "crimson",
+    				color: "red",
+    				weight: 10,
+    				opacity: 1,
+    				fillOpacity: 1
+    			});
+
+        }
+
+
+
+    }).addTo(mymap);
+
+    if(window.outerWidth < 700) {
+
+      labels.forEach( function (d) {
+
+    var textLatLng = [d.lat, d.lon];
+        var myTextLabel = L.marker(textLatLng, {
+            icon: L.divIcon({
+                className: 'text-labels',   // Set class for CSS styling
+                html: d.label
+            }),
+            draggable: false,       // Allow label dragging...?
+            zIndexOffset: 1000     // Make appear above other map features
+        }).addTo(mymap);
+
+
+    });
+
+  }
+    mymap.scrollWheelZoom.disable();
+
+
+
+
+    // var circle = L.circle([-25.93222792852086, 27.998828887939453], 50, {
+		// 		    color: 'dodgerblue',
+		// 		    fillColor: 'dodgerblue',
+		// 		    fillOpacity: 1
+		// 		}).addTo(mymap);
+
+   </script>
+
+ </body>
+
+ </html>
