@@ -10,7 +10,11 @@
     <meta name="author" content="">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-
+    <script src="map_ext_calls.js"></script>
+    <script src="map_call_points.js"></script>
+    <script src="map_labels.js"></script>
+   <script src="lib/leaflet/leaflet.js"></script>
+   <link rel="stylesheet" href="lib/leaflet/leaflet.css">
     <script src="lib/d3.v3.min.js"></script>
     <script src="lib/jquery.min.js"></script>
     <link rel="stylesheet" href="styles.css">
@@ -18,9 +22,12 @@
     <script src="data/alldata.js"></script>
     <script src="lib/c3.js"></script>
     <link rel="stylesheet" href="lib/c3.css">
+  
+
   </head>
 
   <body>
+    <div id="home"></div>
 
     <div class="letooltip">
       <div class="letooltiphead">
@@ -31,6 +38,16 @@
       </div>
 
     </div>
+
+    <div class="maptooltip">
+      <div class="mapext">
+        Extension
+      </div>
+      <div class="mapcalls">
+        Calls
+      </div>
+    </div>
+
 
 
     <!-- Static navbar -->
@@ -47,11 +64,11 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <!-- <li class="active"><a href="#">Home</a></li> -->
-            <li><a href="#about">About</a></li>
-            <li><a href="#diepsloot">Diepsloot</a></li>
-            <li><a href="#data">Vimba app data</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a id="homelink">Home</a></li>
+            <li><a id="aboutlink">About</a></li>
+            <li><a id="diepslootlink">Diepsloot</a></li>
+            <li><a id="datalink">Vimba app data</a></li>
+            <li><a id="contactlink">Contact</a></li>
             <!-- <li><a href="#contact">Contact</a></li> -->
             <!-- <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -87,13 +104,14 @@
 
       </div> -->
       <div class="quote">
-        <img style="width: 80%; height: auto; margin-bottom: 5%;" src="images/vimba_logo_trans.png" /><br />
+        <img class="mainlogo" style="height: auto; margin-bottom: 5%;" src="images/vimba_logo_trans.png" /><br />
         “Diepsloot has some of the highest rates of violence against women ever recorded in South Africa: they are more than double those reported in national studies.”
 
 
       </div>
 
     </div>
+    <div id="about"></div>
     <a name="about"></a>
     <div class="body-copy" style="color: #777;background-color:white;text-align:center; text-align: left;">
 
@@ -173,7 +191,9 @@
     <!-- DATA COLLECTED-->
 
 
-    <a name="data"></a>
+    <!-- <a name="data"></a> -->
+    <div id="data">
+        </div>
     <div style="position:relative;">
       <div class="body-copy" style="background-color:#fff;text-align:center; text-align: left; min-height: 450px;">
       <div class="cross-head" style="text-align:center;">Data collected by the Vimba app</div>
@@ -297,7 +317,7 @@
     <!--    <span class="border" style="background-color:#000;font-size:25px;color: #f7f7f7;">ABOUT DIEPSLOOT</span>-->
       </div>
     </div>
-
+  <div id="diepsloot"></div>
     <a name="diepsloot"></a><div style="position:relative;">
       <div class="body-copy" style="background-color:#fff;text-align:center; text-align: left; min-height: 450px;">
       <div class="cross-head" style="text-align:center;">About Diepsloot</div>
@@ -307,9 +327,11 @@
           <div class="col-md-2"></div>
           <div class="col-md-8">
 
-       <div class="map" style="position: relative; width: 100%; float: left; margin-right: 5%; margin-bottom: 2%;">
+          <iframe style="width: 100%; height: 500px; border: 0;" src="map.html"></iframe>
+
+       <!-- <div class="map" style="position: relative; width: 100%; float: left; margin-right: 5%; margin-bottom: 2%;">
           <div style="position: absolute; top:0; width: 100%; min-height: 300px;"  onClick="style.pointerEvents='none'"></div>
-           <iframe class="map" src="https://www.google.com/maps/d/u/0/embed?mid=1Nf7nX7EBB0AcsB949bltwTk-KO8" width="100%" height="300" frameborder="none"></iframe></div>
+           <iframe class="map" src="https://www.google.com/maps/d/u/0/embed?mid=1Nf7nX7EBB0AcsB949bltwTk-KO8" width="100%" height="300" frameborder="none"></iframe></div> -->
         <p>Diepsloot is a densely populated triangle of land wedged between William Nicol Drive and the N14 freeway in northern Johannesburg. It was established in 1995, and has grown rapidly over the course of two decades as people flocked to Johannesburg in search of work. In 2011 the national census put the population at 180 000, but it’s generally believed that by 2016 at least 350,000 people lived there. It’s a ramshackle dust-coated mixture of tin shacks and RDP houses, intersected by narrow roads, very few of which are tarred.</p>
 
     <p>Unemployment rates are high. A social audit conducted by Sonke Gender Justice found that up to half the working-age population is jobless. The provision of basic services such as water and electricity is limited. </p>
@@ -386,7 +408,7 @@
   <!--    <span class="border" style="background-color:#000;font-size:25px;color: #f7f7f7;">ABOUT DIEPSLOOT</span>-->
     </div>
   </div>
-
+<div id="contact"></div>
 <a name="contact"></a>
   <div style="position:relative;">
 
@@ -725,6 +747,56 @@ addCharts("dec2016");
 
 
     </script>
+
+
+  <script>
+  $(function() {
+      $("#homelink").on('click', function() {
+          var position = $("#home").offset().top;
+          $("HTML, BODY").animate({
+              scrollTop: position - 50
+          }, 1000);
+      });
+  });
+
+  $(function() {
+      $("#diepslootlink").on('click', function() {
+          var position = $("#diepsloot").offset().top;
+          $("HTML, BODY").animate({
+              scrollTop: position - 50
+          }, 1000);
+      });
+  });
+
+  $(function() {
+      $("#contactlink").on('click', function() {
+          var position = $("#contact").offset().top;
+          $("HTML, BODY").animate({
+              scrollTop: position - 50
+          }, 1000);
+      });
+  });
+
+  $(function() {
+      $("#aboutlink").on('click', function() {
+          var position = $("#about").offset().top;
+          $("HTML, BODY").animate({
+              scrollTop: position - 50
+          }, 1000);
+      });
+  });
+
+  $(function() {
+      $("#datalink").on('click', function() {
+          var position = $("#data").offset().top;
+          $("HTML, BODY").animate({
+              scrollTop: position - 50
+          }, 1000);
+      });
+  });
+  </script>
+
+
 
   </body>
 </html>

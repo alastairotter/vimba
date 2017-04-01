@@ -8,10 +8,9 @@
      <script src="map_ext_calls.js"></script>
      <script src="map_call_points.js"></script>
      <script src="map_labels.js"></script>
-     <script src="../lib/d3.v3.min.js"></script>
-
-    <script src="../lib/leaflet/leaflet.js"></script>
-    <link rel="stylesheet" href="../lib/leaflet/leaflet.css">
+     <script src="lib/d3.v3.min.js"></script>
+    <script src="lib/leaflet/leaflet.js"></script>
+    <link rel="stylesheet" href="lib/leaflet/leaflet.css">
 
      <!--[if lt IE 9]>
        <script src = "http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -20,9 +19,14 @@
      html {
       height: 100%;
      }
-      #map {
+     body {
+       margin: 0;
+     }
+      #callmap {
         width: 100%;
-        height: 600px;
+        height: 500px;
+        -ms-touch-action: none;
+        touch-action: none;
       }
 
       .maptooltip {
@@ -82,7 +86,7 @@
       Calls
     </div>
   </div>
-   <div id="map">
+   <div id="callmap">
 
    </div>
 
@@ -108,12 +112,12 @@ labels.forEach( function (d) {
 
 if(window.outerWidth < 700) {
      var zoom = 15;
-     d3.select("#map").style("height", "1000px")
+     d3.select("#callmap").style("height", "1000px")
    }
 else {
       var zoom= 14;
 }
-    var mymap = L.map('map').setView([-25.933725,28.008836], zoom);
+    var mymap = L.map('callmap').setView([-25.933725,28.008836], zoom);
 
     L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
@@ -129,10 +133,6 @@ function onEachFeature(feature, layer) {
        }
 
 function highlightFeature(e) {
-//   console.log(e.target.feature.properties.name + " : " + e.target.feature.properties.total_calls);
-// console.log(e);
-
-
   mapext
     .text("Extension " + e.target.feature.properties.extension);
 
@@ -222,6 +222,11 @@ var geoJsonLayer = L.geoJson(extensions, {
 
   }
     mymap.scrollWheelZoom.disable();
+    mymap.dragging.disable();
+
+    d3.select("#callmap").on("click", function () {
+      mymap.dragging.enable();
+    })
 
 
 
