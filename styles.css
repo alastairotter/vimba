@@ -14,6 +14,12 @@ p {
   line-height: 150%;
 }
 
+.selector {
+  padding: 20px;
+}
+
+
+
 .letooltip {
   position: relative;
   color: #000;
@@ -63,8 +69,9 @@ display: none;
 
 }
 .bgimg-1 {
-  /*background-image: url("diepsloot1.jpg");*/
+  background-image: url("photos/diepsloot1.jpg");
   min-height: 100%;
+  margin-top: -20px;
 }
 
 .bgimg-2 {
@@ -104,6 +111,10 @@ display: none;
 
 }
 
+.mainlogo {
+  width: 80%;
+}
+
 .caption.logo {
   margin-top: -30px;
     background: #000;
@@ -134,16 +145,16 @@ padding: 5%;
 
 .quote {
   width: 80%;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
   text-align: center;
-  font-size: 180%;
-  line-height: 100%;
-  padding-top: 50%;
+  font-size: 160%;
+  line-height: 110%;
+  padding-top: 30%;
   font-weight: 900;
   color: #fff;
-opacity:0.8;
-text-shadow: 0px 0px 13px rgba(0, 0, 0, 0.87);
+opacity:1;
+text-shadow: 0px 0px 7px rgba(0, 0, 0, 1);
 }
 
 img.main-logo {
@@ -238,12 +249,24 @@ h3 {
 
 
 
-@media screen and (min-width: 700px) {
 
-  img.main-logo {
+@media screen and (min-width: 700px) {
+  .mainlogo {
+    width:100%;
+    max-width: 400px;
+  }
+
+  .quote {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+    padding-top: 5%;
+    font-size: 250%;
+  }
+  /*img.main-logo {
     width: 90%;
     max-width: 500px;
-  }
+  }*/
   img.small {
     display: block;
   }
