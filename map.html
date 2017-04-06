@@ -62,7 +62,7 @@
       .text-labels {
         position: absolute;
         z-index: 1000;
-            font-size:300%;
+            font-size:100%;
             color: #fff;
             opacity: 0.8;
             display: block;
@@ -111,8 +111,8 @@ labels.forEach( function (d) {
 
 
 if(window.outerWidth < 700) {
-     var zoom = 15;
-     d3.select("#callmap").style("height", "1000px")
+     var zoom = 14;
+     d3.select("#callmap").style("height", "700px")
    }
 else {
       var zoom= 14;
@@ -222,7 +222,7 @@ var geoJsonLayer = L.geoJson(extensions, {
 
   }
     mymap.scrollWheelZoom.disable();
-    mymap.dragging.disable();
+    // mymap.dragging.disable();
 
     d3.select("#callmap").on("click", function () {
       mymap.dragging.enable();
