@@ -113,33 +113,33 @@ display: none;
 
 .bgimg-2 {
   background-image: url("photos/diepsloot1.jpg");
-  min-height: 90%;
+  min-height: 100%;
 }
 
 .bgimg-3 {
   background-image: url("photos/brown_5998.jpg");
-  min-height: 70%;
+  min-height: 100%;
 }
 
 .bgimg-5{
   background-image: url("photos/diepsloot3.jpg");
-  min-height: 40%;
+  min-height: 100%;
 }
 
 .bgimg-4 {
   background-image: url("photos/diepsloot4.jpg");
-  min-height: 70%;
+  min-height: 100%;
 }
 
 .bgimg-6 {
   background-image: url("photos/diepsloot2.jpg");
-  min-height: 70%;
+  min-height: 100%;
 }
 
 
 .bgimg-8 {
-  background-image: url("photos/kids_small.jpg");
-  min-height: 70%;
+  background-image: url("photos/vimbawall.jpg");
+  min-height: 100%;
 }
 
 
