@@ -10,10 +10,15 @@ var callsByTime = {
   ['12pm to 6pm', 37],
   ['6pm to midnight', 19]],
   "feb2017":
-  [['Midnight to 6am', 14],
-  ['6am to 12pm', 13],
-  ['12pm to 6pm', 3],
-  ['6pm to midnight',0]]
+  [['Midnight to 6am', 1],
+  ['6am to 12pm', 10],
+  ['12pm to 6pm', 21],
+  ['6pm to midnight',3]],
+  "mar2017":
+  [['Midnight to 6am', 12],
+  ['6am to 12pm', 11],
+  ['12pm to 6pm', 18],
+  ['6pm to midnight',7]]
 };
 
 var callsByDay = {
@@ -34,11 +39,19 @@ var callsByDay = {
       ['Sat', 11],
       ['Sun', 15]],
       "feb2017":
-        [['Mon', 6],
+        [['Mon', 9],
         ['Tues', 3],
         ['Wed', 7],
-        ['Thurs', 3],
+        ['Thurs', 4],
         ['Fri',4],
+        ['Sat', 5],
+        ['Sun', 3]],
+      "mar2017":
+        [['Mon', 4],
+        ['Tues', 3],
+        ['Wed', 9],
+        ['Thurs', 8],
+        ['Fri',7],
         ['Sat', 4],
         ['Sun', 3]]
 }
@@ -55,10 +68,15 @@ var helpNeeded = {
       ['I have been beaten/abused', 18],
       ['Help a beaten/abused person', 34]],
       "feb2017":
-        [['I have been raped', 5],
+        [['I have been raped', 7],
         ['Help someone who has been raped', 1],
         ['I have been beaten/abused', 9],
-        ['Help a beaten/abused person', 15]]
+        ['Help a beaten/abused person', 18]],
+        "mar2017":
+          [['I have been raped', 7],
+          ['Help someone who has been raped', 6],
+          ['I have been beaten/abused', 12],
+          ['Help a beaten/abused person', 13]]
 }
 
 // var totalCalls = {
@@ -76,7 +94,10 @@ var totalCalls = {
       "completed", 88]],
   "feb2017":
     [["total", 134,
-      "completed", 30]]
+      "completed", 35]],
+  "mar2017":
+    [["total", 00,
+      "completed", 38]]
 }
 
 
@@ -146,6 +167,27 @@ var callsByDate = {
 ],
 
 "feb2017":
+[
+  ["03/02/2017",1  ],
+  ["04/02/2017",3  ],
+  ["05/02/2017",2  ],
+  ["07/02/2017",1  ],
+  ["09/02/2017",2  ],
+  ["11/02/2017",1  ],
+  ["13/02/2017",2  ],
+  ["15/02/2017",2  ],
+  ["16/02/2017",1  ],
+  ["17/02/2017",1  ],
+  ["20/02/2017",1  ],
+  ["21/02/2017",1  ],
+  ["22/02/2017",1  ],
+  ["24/02/2017",2  ],
+  ["26/02/2017",1  ],
+  ["27/02/2017",3  ],
+  ["28/02/2017",1  ]
+],
+
+"mar2017":
 [
   ["03/02/2017",1  ],
   ["04/02/2017",3  ],
