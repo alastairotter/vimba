@@ -12,15 +12,9 @@
     <link rel="shortcut icon" href="images/vimba_ico.png" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900|Merriweather" rel="stylesheet">
     <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-    <script src="map_ext_calls.js"></script>
-    <script src="map_call_points.js"></script>
-    <script src="map_labels.js"></script>
-   <script src="lib/leaflet/leaflet.js"></script>
-   <link rel="stylesheet" href="lib/leaflet/leaflet.css">
     <script src="lib/d3.v3.min.js"></script>
     <script src="lib/jquery.min.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="styles_charts.css">
     <script src="data/alldata.js"></script>
     <script src="lib/c3.js"></script>
     <link rel="stylesheet" href="lib/c3.css">
@@ -420,9 +414,9 @@ counselling and helps victims access services. Since the launch of the Vimba hel
 
   var vidoffset = $(".video-container").offset();
 
-  console.log(vidoffset);
+
   var vidwidth = $(".video-container").width();
-  console.log("video width: " + vidwidth);
+
   var vidheight = (vidwidth/16) * 9;
   $(".video1").width(vidwidth + "px").height(vidheight + "px")
   $(".video2").width(vidwidth + "px").height(vidheight + "px")
@@ -581,7 +575,7 @@ var colors = ['#67001f','#b2182b','#d6604d','#f4a582','#fddbc7','#e0e0e0','#baba
 
 function addCharts(month) {
 
-console.log(month);
+
 var chart2 = c3.generate({
   bindto: '#chart2',
   interaction: {
@@ -594,7 +588,7 @@ data: {
     columns: callsByDay[month],
     type: 'bar',
     onclick: function (d, i) {
-      console.log(d);
+
 
       letooltip
         .style("display", "block")
@@ -653,9 +647,9 @@ var chart3 = c3.generate({
     data: {
       columns: callsByTime[month],
         type : 'pie',
-        // onclick: function (d, i) { console.log("onclick", d, i); },
+
         onmouseover: function (d, i) {
-          console.log(d);
+
 
           letooltip
             .style("display", "block")
@@ -708,7 +702,7 @@ data: {
     columns: helpNeeded[month],
     type: 'bar',
     onclick: function (d, i) {
-      console.log(d);
+
 
       letooltip
         .style("display", "block")
@@ -763,7 +757,7 @@ data: {
     columns: callsByDate[month],
     type: 'bar',
     onclick: function (d, i) {
-      console.log(d);
+
 
       letooltip
         .style("display", "block")
@@ -813,7 +807,7 @@ d3.selectAll("tspan").remove();
     d3.select("#monthselect").on("change", change)
     function change() {
         var selection = this.options[this.selectedIndex].value;
-        console.log(totalCalls[selection]);
+
 
         d3.selectAll("svg").remove();
         d3.select(".total-call-count")
@@ -849,9 +843,7 @@ d3.selectAll("tspan").remove();
       var logoHeight = $(".main-logo").height();
       var pageHeight = window.innerHeight;
 
-      console.log("pageHeight: " + pageHeight);
 
-      console.log("logoHeight: " + logoHeight);
 
       $(".main-logo").css("top", function () {
           return (pageHeight/2 - logoHeight/1.5) + "px";
@@ -911,6 +903,15 @@ d3.selectAll("tspan").remove();
   </script>
 
 
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+    ga('create', 'UA-97059446-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
   </body>
 </html>

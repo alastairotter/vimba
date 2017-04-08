@@ -398,13 +398,153 @@ h3 {
 }
 
 
-/*@media screen and (min-width: 800px) {
 
-  img.main-logo {
-    max-height: 90%;
-  }
+/* STYLES FOR CHARTS */
 
 
+    #charts {
+        width: 80%;
+        max-width: 1000px;
+        margin-left: 5%;
+        margin-right: 15%;
+        min-height: 200px;
+        font-size: 100%;
+
+        /*border: solid 1px #eee;*/
+
+    }
 
 
-}*/
+
+    text {
+        stroke: none;
+        fill: #000;
+
+
+    }
+
+    .axis-no-line {
+        display: none;
+    }
+
+    .axis-x {
+/*            display: none;*/
+    }
+
+    .total-box {
+        width: 80%;
+        /*height: 50%;*/
+        margin-top: 5%;
+        background: #eee;
+        border-radius: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 5%;
+        text-align: center;
+        color: #000;
+        padding-top: 5%;
+        text-transform: uppercase;
+        /*opacity:0.5;*/
+        border: solid 1px gray;
+        line-height: 200%;
+
+    }
+
+
+
+    .total-call-count {
+        font-weight: bold;
+        font-size: 80%;
+
+    }
+
+    .completed-calls-count {
+      font-weight: bold;
+      font-size: 130%;
+    }
+
+    /*select {
+      font-size: 300%;
+    }*/
+
+    .bars, .topbars {
+        fill: #90D4D4;
+        stroke: none;
+        /*opacity: 0.5;*/
+        stroke: gray;
+        stroke-width: 1px;
+        shape-rendering: crispEdges;
+    }
+
+    .value {
+        visibility: hidden;
+    }
+
+    .labels2 {
+        font-size: 60%;
+    }
+
+    .text3, .text4, .text5 {
+        font-size: 60%;
+    }
+    .text6 {
+      font-size: 80%;
+    }
+
+
+    .horizbars {
+
+    }
+
+    .title {
+        width: 100%;
+        text-align: center;
+      font-size: 200%;
+      font-weight: 700;
+      margin-top: 15%;
+
+    }
+
+    .chart-title {
+      width: 100%;
+      text-align: center;
+      font-weight: 700;
+      margin-top: 5%;
+    }
+    .month-select {
+      width: 100%;
+      text-align: center;
+      margin-top: 15%;
+    }
+
+  line {
+      fill: none;
+  stroke: red;
+  shape-rendering: crispEdges;
+  stroke-width: 1px;
+
+    }
+
+    path {
+        fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+    stroke-width: 1px;
+
+      }
+
+      .c3-legend-item line {
+        stroke-width: 10px;
+
+      }
+      /*.c3-legend-item text {
+        font-size: 70%;
+      }
+
+      .tick text {
+        font-size: 70%;
+      }*/
+
+      .tick line {
+        display: none;
+      }
