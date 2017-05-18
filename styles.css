@@ -321,6 +321,24 @@ h3 {
   text-decoration:underline;
 }
 
+.map-legend {
+  font-family: "Lato", Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 70%;
+  background: #eee;
+  padding: 2% 3%;
+  color: #000;
+  margin-bottom: 0;
+  line-height: 120%;
+
+}
+
+.extblock {
+  width: 45%;
+  float: left;
+  padding: 3px;
+
+}
+
 
 
 
@@ -332,6 +350,9 @@ h3 {
   .mainlogo {
     width:100%;
     max-width: 400px;
+  }
+  .map-legend {
+    display: none;
   }
   .video-title {
     font-size:110%;

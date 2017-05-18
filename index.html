@@ -5,10 +5,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta property="og:url" content="http://vimbadiepsloot.co.za" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Vimba Diepsloot: Using data to help victims of violence" />
+    <meta property="og:description" content="Vimba provides a free SMS-based support service for victims of violence while providing support services with valuable data." />
+    <meta property="og:image" content="http://www.vimbadiepsloot.co.za/vimbapic.png" />
     <meta name="description" content="Vimba Diepsloot Helpline uses data to support women and children who are victims of violence. ">
     <meta name="keywords" content="Diepsloot,violence,women,children,rape,township,data-journalism,USSD" />
-    <meta name="author" content="">
+
     <link rel="shortcut icon" href="images/vimba_ico.png" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900|Merriweather" rel="stylesheet">
     <link rel="stylesheet" href="lib/bootstrap-3.3.7-dist/css/bootstrap.min.css">
@@ -18,6 +22,7 @@
     <script src="data/alldata.js"></script>
     <script src="lib/c3.js"></script>
     <link rel="stylesheet" href="lib/c3.css">
+    <script src="map_data.js"></script>
 
 
   </head>
@@ -114,6 +119,8 @@ Guardian’s <a href="http://bhekisisa.org/">Bhekisisa Centre for Health Journal
 
 
     </div>
+
+
 
     <div class="bgimg-8 content-pad">
       <div class="quote">
@@ -245,6 +252,9 @@ counselling and helps victims access services. Since the launch of the Vimba hel
       <option value="mar2017">
         March 2017
       </option>
+      <option value="apr2017">
+        April 2017
+      </option>
     </select>
   </span>
   </div>
@@ -332,11 +342,39 @@ counselling and helps victims access services. Since the launch of the Vimba hel
           </div class="col-md-2">
           </div>
         </div>
+
+
+
           <div class='row'>
               <div class='col-md-2'>
 
               </div>
               <div class="col-md-8">
+                <div class="map-legend">
+                  The white numbers below are the Diepsloot extension numbers and the red circles the number of calls.<br />
+                  <div class="extdata">
+                    Ext Data
+                  </div>
+
+                  <script>
+                    var extlabels = "";
+                    var lineBreak = 0;
+
+
+                    points.features.forEach( function (d) {
+                      extlabels +=
+                        "<div class='extblock'><b>Extension " + d.properties.extension + "</b>: " + d.properties.calls + " calls </div>";
+
+
+
+                    })
+
+                    d3.select(".extdata").html(extlabels);
+                  </script>
+  <div style="clear:both; ">
+
+  </div>
+                </div>
                 <iframe style="width: 100%; height: 500px; border: 0;" src="map.html"></iframe>
               </div>
 
@@ -352,6 +390,7 @@ counselling and helps victims access services. Since the launch of the Vimba hel
 
 
 </div>
+<br  />
 
     <!-- CHARTS END HERE -->
 
@@ -913,5 +952,8 @@ d3.selectAll("tspan").remove();
     ga('send', 'pageview');
 
   </script>
+
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4d708b425b845fd3"></script>
+
   </body>
 </html>

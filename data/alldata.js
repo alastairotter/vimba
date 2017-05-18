@@ -18,7 +18,12 @@ var callsByTime = {
   [['Midnight to 6am', 12],
   ['6am to 12pm', 11],
   ['12pm to 6pm', 18],
-  ['6pm to midnight',7]]
+  ['6pm to midnight',7]],
+  "apr2017":
+  [['Midnight to 6am', 2],
+  ['6am to 12pm', 10],
+  ['12pm to 6pm', 13],
+  ['6pm to midnight',15]]
 };
 
 var callsByDay = {
@@ -53,7 +58,15 @@ var callsByDay = {
         ['Thurs', 8],
         ['Fri',7],
         ['Sat', 4],
-        ['Sun', 3]]
+        ['Sun', 3]],
+      "apr2017":
+      [['Mon', 8],
+      ['Tues', 2],
+      ['Wed', 8],
+      ['Thurs', 6],
+      ['Fri',8],
+      ['Sat', 3],
+      ['Sun', 5]]
 }
 
 var helpNeeded = {
@@ -76,7 +89,12 @@ var helpNeeded = {
           [['I have been raped', 7],
           ['Help someone who has been raped', 6],
           ['I have been beaten/abused', 12],
-          ['Help a beaten/abused person', 13]]
+          ['Help a beaten/abused person', 13]],
+        "apr2017":
+        [['I have been raped', 5],
+        ['Help someone who has been raped', 3],
+        ['I have been beaten/abused', 13],
+        ['Help a beaten/abused person', 19]]
 }
 
 // var totalCalls = {
@@ -97,7 +115,10 @@ var totalCalls = {
       "completed", 35]],
   "mar2017":
     [["total", 00,
-      "completed", 38]]
+      "completed", 38]],
+  "apr2017":
+    [["total", 00,
+      "completed", 40]]
 }
 
 
@@ -212,5 +233,29 @@ var callsByDate = {
   ["27/03/2017",1  ],
   ["28/03/2017",1  ],
   ["29/03/2017",2  ]
-]
+],
+  "apr2017":
+  [
+    ["2017-04-03",	3],
+["2017-04-04",	1],
+["2017-04-05",	2],
+["2017-04-06",	1],
+["2017-04-07",	1],
+["2017-04-09",	1],
+["2017-04-10",	3],
+["2017-04-12",	5],
+["2017-04-13",	4],
+["2017-04-14",	3],
+["2017-04-15",	1],
+["2017-04-16",	2],
+["2017-04-19",	1],
+["2017-04-20",	1],
+["2017-04-21",	4],
+["2017-04-23",	1],
+["2017-04-24",	2],
+["2017-04-25",	1],
+["2017-04-29",	2],
+["2017-04-30",	1]
+
+  ]
     }
