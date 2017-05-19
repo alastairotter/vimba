@@ -19,7 +19,15 @@
     <script src="lib/d3.v3.min.js"></script>
     <script src="lib/jquery.min.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <script src="data/alldata.js"></script>
+    <script>
+      var randno = Math.floor(Math.random() * 10000000);
+      console.log(randno);
+      var dataurl = "data/alldata.js?#" + randno;
+      document.open();
+      document.write("\<script\ src='data/alldata.js?" + randno + "'>\</script\>");
+      document.close();
+    </script>
+
     <script src="lib/c3.js"></script>
     <link rel="stylesheet" href="lib/c3.css">
     <script src="map_data.js"></script>
@@ -69,7 +77,7 @@
             <li><a id="homelink">Home</a></li>
             <li><a id="aboutlink">About</a></li>
 
-            <li><a id="datalink">Vimba app data</a></li>
+            <li><a id="datalink">Vimba Data</a></li>
             <li><a id="diepslootlink">Diepsloot</a></li>
 
             <li><a id="contactlink">Partners</a></li>
@@ -205,7 +213,7 @@ counselling and helps victims access services. Since the launch of the Vimba hel
         </div>
     <div style="position:relative;">
       <div class="body-copy" style="background-color:#fff;text-align:center; text-align: left; min-height: 450px;">
-      <div class="cross-head" style="text-align:center;">Data collected by the Vimba app</div>
+      <div class="cross-head" style="text-align:center;">Data collected by the Vimba</div>
 
       <div class="row">
           <div class="col-md-2"></div>
