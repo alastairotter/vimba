@@ -7,6 +7,11 @@ body, html {
   color: black;
 }
 
+.nav a { 
+    cursor: pointer;
+    cursor: hand;
+}
+
 
 
 p {
@@ -17,10 +22,34 @@ p {
 
 }
 
+.itals { 
+/*    font-style: italic;*/
+    color: #3f3f3f;
+    font-family: Lato, Arial, "Helvetica Neue", Helvetica, sans-serif;
+    
+    
+}
+
+.impact-blurb { 
+    margin-bottom: 30px;
+    margin-top: 30px;
+    padding-left: 5%;
+    padding-right:5%;
+    
+}
+
 .selector {
   padding: 20px;
 }
 
+
+.crosshead { 
+    font-weight: bold;
+    font-family: "Lato", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 120%;
+    margin-top: 20px;
+    
+}
 
 
 .charthead {
@@ -96,7 +125,7 @@ display: none;
 
 
 
-.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5, .bgimg-6, .bgimg-8 {
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5, .bgimg-6, .bgimg-8, .bgimg-9 {
   position: relative;
 /*  opacity: 0.85;*/
   background-attachment: fixed;
@@ -139,6 +168,11 @@ display: none;
 
 .bgimg-8 {
   background-image: url("photos/vimbawall.jpg");
+  min-height: 100%;
+}
+
+.bgimg-9 {
+  background-image: url("photos/brown2.jpg");
   min-height: 100%;
 }
 
